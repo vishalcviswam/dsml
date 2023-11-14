@@ -1,0 +1,11 @@
+import numpy as np
+arr1 = np.array([1,2,3,4,5])
+arr2 = np.array([6,7,8,9,10])
+result_add = arr1 + arr2
+print("The sum of arrays are : ",result_add)
+result_multiply = arr1 * arr2
+print("The product of 2 arrays are : ",result_multiply)
+mean=np.mean(result_add)
+print("The mean of sum is : ",mean)
+max=np.max(result_multiply)
+print("The maximum value is : ",max)

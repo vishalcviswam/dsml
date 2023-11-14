@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import numpy as np
+import pandas as pd
+
+df=pd.read_csv("studyexam.csv")
+x=df['study hours']
+y=df['exam score']
+xi=np.mean(x)
+print("Mean of study hours",xi)
+yi=np.mean(y)
+print("Mean of exam scores",yi)
+m=np.sum((x-xi)*(y-yi))/np.sum((x-xi)**2)
+b=yi-m*xi
+def predict_exam_score(hours):
+    return m * hours + b
+predicted_score = predict_exam_score(4)
+print("predicted hours of 4 :{predicted_score} = ",predicted_score)
+regression_line=m*x+b
+plt.scatter(x,y, color='blue',label='data')
+plt.plot(x,regression_line,color='red',label='regression line')
+plt.scatter(4,predicted_score, color='yellow',label='predicted point')
+plt.xlabel(x)
+plt.ylabel(y)
+plt.legend()
+plt.show()

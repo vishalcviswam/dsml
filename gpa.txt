@@ -1,0 +1,19 @@
+import pandas as pd
+student_data={'Student_id':[25,30,35,34,12,23],'Name':['Alice','Bob','Charlie','Neha','Arya','Anu'],'Age':[18,20,25,12,23,33],'GPA':[85,90,78,56,77,76],}
+df = pd.DataFrame(student_data)
+print("The dataframe is:")
+print(df)
+print("")
+print("Rows of student age above 20 : ")
+ages = df[(df['Age'] >= 20)]
+print(ages)
+print("")
+print("Average of the GPA :")
+print(df['GPA'].mean())
+print("")
+print("GPA in descending order :")
+dsc = df.sort_values(by=['GPA'], ascending=[False])
+print(dsc.head(5))
+print("")
+result = df.groupby('Age')['GPA'].mean().reset_index()
+print(result)
